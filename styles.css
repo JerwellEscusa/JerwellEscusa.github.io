@@ -5,6 +5,6 @@
   border-radius: 5px; 
   padding: 10px;
   overflow-x: auto;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   max-width: 100%;
 }
