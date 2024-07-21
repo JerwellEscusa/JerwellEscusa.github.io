@@ -224,6 +224,52 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Time Series Forecasting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Japan Visits: Hierarchical and Grouped Time Series</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../forecasting/jp_tourism/data_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Wrangling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../forecasting/jp_tourism/data_prep-viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Preparation and Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../forecasting/jp_tourism/forecasting_agg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ETS and ARIMA Forecasting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../forecasting/jp_tourism/forecasting_reconciliation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forecast Reconciliation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -284,7 +330,7 @@ Note
 <section id="prerequisites" class="level2">
 <h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
 <p>Import all the modules you will need in this notebook here:</p>
-<div id="600bf600" class="cell" data-execution_count="1">
+<div id="25377ed9" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 0</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -301,7 +347,7 @@ Note
 <h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
 <p>We continue analysing the <code>fram</code> heart disease data.</p>
 <p>First load the data, use the name <code>fram</code> for the DataFrame variable. Make sure that in the data you loaded the column and row headers are in place. Checkout the summary of the variables using the <code>describe</code> method.</p>
-<div id="44f0e7d6" class="cell" data-execution_count="2">
+<div id="0989dc16" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 1</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_path(filename):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> sys</span>
@@ -315,7 +361,7 @@ Note
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>fram <span class="op">=</span> pd.read_csv(get_path(<span class="st">"fram.txt"</span>), sep<span class="op">=</span><span class="st">"</span><span class="ch">\t</span><span class="st">"</span>)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>fram.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -456,7 +502,7 @@ Note
 </div>
 </div>
 <p>Create function <code>rescale</code> that takes a Series as parameter. It should center the data and normalize it by dividing by 2 <span class="math inline">\(\sigma\)</span>, where <span class="math inline">\(\sigma\)</span> is the standard deviation. Return the rescaled Series.</p>
-<div id="7a854d48" class="cell" data-execution_count="3">
+<div id="9c60e24e" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 2</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rescale(s):</span>
@@ -465,7 +511,7 @@ Note
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (s<span class="op">-</span>center)<span class="op">/</span>normal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Add to the DataFrame the scaled versions of all the continuous variables (with function <code>rescale</code>). Add small letter <code>s</code> in front of the original variable name to get the name of the scaled variable. For instance, <code>AGE</code> -&gt; <code>sAGE</code>.</p>
-<div id="8a520d53" class="cell" data-execution_count="4">
+<div id="ada598e0" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 3</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>new <span class="op">=</span> [<span class="st">"s"</span><span class="op">+</span>x <span class="cf">for</span> x <span class="kw">in</span> fram.columns[<span class="dv">2</span>:<span class="dv">9</span>].drop(<span class="st">"SBP10"</span>)]</span>
@@ -476,7 +522,7 @@ Note
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 27(15), 2865–2873. https://doi.org/10.1002/sim.3107</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Form a model that predicts systolic blood pressure using weight, gender, and cholesterol level as explanatory variables. Store the fitted model in variable named <code>fit</code>.</p>
-<div id="dca7fe8c" class="cell" data-execution_count="5">
+<div id="d8821b84" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 4</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> smf.ols(<span class="st">'SBP ~ SEX + sFRW + sCHOL'</span>, data<span class="op">=</span>fram).fit()</span>
@@ -487,8 +533,8 @@ Note
 Dep. Variable:                    SBP   R-squared:                       0.125
 Model:                            OLS   Adj. R-squared:                  0.123
 Method:                 Least Squares   F-statistic:                     66.37
-Date:                Thu, 20 Jun 2024   Prob (F-statistic):           4.13e-40
-Time:                        23:33:55   Log-Likelihood:                -6530.4
+Date:                Sun, 21 Jul 2024   Prob (F-statistic):           4.13e-40
+Time:                        20:51:43   Log-Likelihood:                -6530.4
 No. Observations:                1394   AIC:                         1.307e+04
 Df Residuals:                    1390   BIC:                         1.309e+04
 Df Model:                           3                                         
@@ -512,7 +558,7 @@ Notes:
 </div>
 </div>
 <p>Add the variable AGE to the model and inspect the estimates of the coefficients using the <code>summary</code> method of the fitted model. Again use the name <code>fit</code> for the fitted model. (From now on assume that we always use the name <code>fit</code> for the variable of the fitted model.)</p>
-<div id="81db349e" class="cell" data-execution_count="6">
+<div id="ac28a01e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 5</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> smf.ols(<span class="st">'SBP ~ SEX + sFRW + sCHOL + sAGE'</span>, data<span class="op">=</span>fram).fit()</span>
@@ -523,8 +569,8 @@ Notes:
 Dep. Variable:                    SBP   R-squared:                       0.146
 Model:                            OLS   Adj. R-squared:                  0.144
 Method:                 Least Squares   F-statistic:                     59.39
-Date:                Thu, 20 Jun 2024   Prob (F-statistic):           2.44e-46
-Time:                        23:33:55   Log-Likelihood:                -6513.6
+Date:                Sun, 21 Jul 2024   Prob (F-statistic):           2.44e-46
+Time:                        20:51:44   Log-Likelihood:                -6513.6
 No. Observations:                1394   AIC:                         1.304e+04
 Df Residuals:                    1389   BIC:                         1.306e+04
 Df Model:                           4                                         
@@ -566,7 +612,7 @@ Notes:
 </div>
 <hr>
 <p>Try to add to the model all the interactions with other variables.</p>
-<div id="a67d57c3" class="cell" data-execution_count="7">
+<div id="1b338207" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 6</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> smf.ols(<span class="st">'SBP ~ SEX + SEX:sFRW + SEX:sCHOL + SEX:sAGE + sFRW + sFRW:sCHOL + sFRW:sAGE + sCHOL + sCHOL:sAGE + sAGE'</span>, </span>
@@ -578,8 +624,8 @@ Notes:
 Dep. Variable:                    SBP   R-squared:                       0.151
 Model:                            OLS   Adj. R-squared:                  0.144
 Method:                 Least Squares   F-statistic:                     24.52
-Date:                Thu, 20 Jun 2024   Prob (F-statistic):           4.92e-43
-Time:                        23:33:55   Log-Likelihood:                -6509.9
+Date:                Sun, 21 Jul 2024   Prob (F-statistic):           4.92e-43
+Time:                        20:51:44   Log-Likelihood:                -6509.9
 No. Observations:                1394   AIC:                         1.304e+04
 Df Residuals:                    1383   BIC:                         1.310e+04
 Df Model:                          10                                         
@@ -610,7 +656,7 @@ Notes:
 </div>
 </div>
 <p>Then visualize the model as the function of weight for the youngest (sAGE=-1.0), middle aged (sAGE=0.0), and oldest (sAGE=1.0) women while assuming the background variables to be centered. Remember to consider the changes in the intercept and in the regression coefficient caused by age. Visualize both the data points and the fitted lines.</p>
-<div id="ed0e354d" class="cell" data-execution_count="8">
+<div id="a4c35c2b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 7</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining colors based on viridis color map (yellow - violet)</span></span>
@@ -646,9 +692,9 @@ Notes:
 </div>
 </div>
 </div>
-<p>How does the dependence of blood pressure on weight change as a person gets older? <strong><em>This question can be formally answered by taking the second-order mixed partial derivative of this regression function:</em></strong></p>
+<p>How does the dependence of blood pressure on weight change as a person gets older?</p>
 <div class="answers">
-<p><span class="math display">\[
+<p>This question can be formally answered by taking the second-order mixed partial derivative of this regression function: <span class="math display">\[
 \widehat{SBP} = 150.5439 + ... + 16.6450⋅sFRW + 10.2189⋅sAGE - 2.0866(sFRW⋅sAGE) + ...
 \]</span> The first partial derivative, change in SBP with respect to change in sFRW, is what the question means with the dependence of blood pressure on weight change. <span class="math display">\[
 \frac{∂\widehat{SBP}}{∂sFRW} = 16.6450 - 2.0866⋅sAGE
@@ -659,7 +705,7 @@ Notes:
 <section id="even-more-accurate-model" class="level3">
 <h3 class="anchored" data-anchor-id="even-more-accurate-model">Even more accurate model</h3>
 <p>Include the background variable <code>sCIG</code> from the data and its interactions. Visualize the model for systolic blood pressure as the function of the most important explanatory variable. Visualize separate lines for the small (-1.0), average (0.0), and large (1.0) values of <code>sCHOL</code>. Other variables can be assumed to be at their mean value.</p>
-<div id="1c6d66c1" class="cell" data-execution_count="9">
+<div id="8b9dab18" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 8</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>fit <span class="op">=</span> smf.ols(<span class="st">'SBP ~ SEX + SEX:sFRW + SEX:sCHOL + SEX:sAGE + SEX:sCIG + sFRW + sFRW:sCHOL + sFRW:sAGE + sFRW:sCIG + sCHOL </span><span class="ch">\</span></span>
@@ -698,8 +744,8 @@ Notes:
 Dep. Variable:                    SBP   R-squared:                       0.152
 Model:                            OLS   Adj. R-squared:                  0.143
 Method:                 Least Squares   F-statistic:                     16.50
-Date:                Thu, 20 Jun 2024   Prob (F-statistic):           2.99e-40
-Time:                        23:33:56   Log-Likelihood:                -6508.6
+Date:                Sun, 21 Jul 2024   Prob (F-statistic):           2.99e-40
+Time:                        20:51:44   Log-Likelihood:                -6508.6
 No. Observations:                1394   AIC:                         1.305e+04
 Df Residuals:                    1378   BIC:                         1.313e+04
 Df Model:                          15                                         
@@ -750,13 +796,13 @@ Notes:
 </section>
 <section id="logistic-regression" class="level2">
 <h2 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h2>
-<div id="502057b3" class="cell" data-execution_count="10">
+<div id="04e92af6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logistic(x):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">+</span> np.exp(<span class="op">-</span>x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will continue predicting high blood pressure by taking in some continuous background variables, such as the age.</p>
 <p>Recreate the model <code>HIGH_BP ~ sFRW + SEX + SEX:sFRW</code> presented in the introduction. Make sure, that you get the same results. Use name <code>fit</code> for the fitted model. Compute and store the error rate into variable <code>error_rate_orig</code>.</p>
-<div id="03c6424f" class="cell" data-execution_count="11">
+<div id="27b011c7" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 9</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define HIGH_BP</span></span>
@@ -776,8 +822,8 @@ Model:                            GLM   Df Residuals:                     1390
 Model Family:                Binomial   Df Model:                            3
 Link Function:                  Logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -856.87
-Date:                Thu, 20 Jun 2024   Deviance:                       1713.7
-Time:                        23:33:57   Pearson chi2:                 1.39e+03
+Date:                Sun, 21 Jul 2024   Deviance:                       1713.7
+Time:                        20:51:45   Pearson chi2:                 1.39e+03
 No. Iterations:                     4   Pseudo R-squ. (CS):            0.06351
 Covariance Type:            nonrobust                                         
 ====================================================================================
@@ -792,7 +838,7 @@ error rate: 0.35581061692969873</code></pre>
 </div>
 </div>
 <p>Add the <code>sAGE</code> variable and its interactions. Check the prediction accuracy of the model and compare it to the previous model. Store the prediction accuracy to variable <code>error_rate</code>.</p>
-<div id="b05a5526" class="cell" data-execution_count="12">
+<div id="0139c5a8" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 10</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
@@ -809,8 +855,8 @@ Model:                            GLM   Df Residuals:                     1387
 Model Family:                Binomial   Df Model:                            6
 Link Function:                  Logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -845.51
-Date:                Thu, 20 Jun 2024   Deviance:                       1691.0
-Time:                        23:33:57   Pearson chi2:                 1.39e+03
+Date:                Sun, 21 Jul 2024   Deviance:                       1691.0
+Time:                        20:51:45   Pearson chi2:                 1.39e+03
 No. Iterations:                     4   Pseudo R-squ. (CS):            0.07865
 Covariance Type:            nonrobust                                         
 ====================================================================================
@@ -828,7 +874,7 @@ error rate: 0.3278335724533716</code></pre>
 </div>
 </div>
 <p>Visualize the predicted probability of high blood pressure as the function of weight. Remember to use normalized values (<code>rescale</code>) also for those variables that are not included in the visualization, so that sensible values are used for them (data average). Draw two figures with altogether six curves: young, middle aged, and old women; and young, middle aged, and old men. Use <code>plt.subplots</code>. (Plotting works in similar fashion as in the introduction. The argument factors need, however, be changed as in the example about visualisation of continuous variable.)</p>
-<div id="b9641dcb" class="cell" data-execution_count="13">
+<div id="9649b4bd" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 11</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logistic(x):</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">+</span> np.exp(<span class="op">-</span>x))</span>
@@ -937,7 +983,7 @@ error rate: 0.3278335724533716</code></pre>
 <p>Create here a helper function <code>train_test_split</code> that gets a DataFrame as parameter and return a pair of DataFrames: one for training and the second for testing. The function should get parameters in the following way:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>train_test_split(df, train_fraction<span class="op">=</span><span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The data should be split randomly to training and testing DataFrames so that <code>train_fraction</code> fraction of data should go into the training set. Use the <code>sample</code> method of the DataFrame.</p>
-<div id="9c5f22ae" class="cell" data-execution_count="14">
+<div id="0d6a01e5" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 12</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train_test_split(df, train_fraction<span class="op">=</span><span class="fl">0.8</span>):</span>
@@ -946,7 +992,7 @@ error rate: 0.3278335724533716</code></pre>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> train, test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Check the prediction accuracy of your model using cross validation. Use 100-fold cross validation and training_fraction 0.8.</p>
-<div id="9647abe4" class="cell" data-execution_count="15">
+<div id="8d77af64" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 13</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
@@ -961,14 +1007,14 @@ error rate: 0.3278335724533716</code></pre>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    error_model.append(error_rate)</span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    error_null.append((<span class="dv">1</span> <span class="op">-</span> test.HIGH_BP).mean())</span>
 <span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>pd.Series(error_model).mean(), pd.Series(error_null).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>(0.3311827956989247, 0.3488530465949821)</code></pre>
 </div>
 </div>
 <section id="predicting-coronary-heart-disease" class="level3">
 <h3 class="anchored" data-anchor-id="predicting-coronary-heart-disease">Predicting coronary heart disease</h3>
 <p>Let us use again the same data to learn a model for the occurrence of coronary heart disease. We will use logistic regression to predict whether a patient <em>sometimes</em> shows symptoms of coronary heart disease. For this, add to the data a binary variable <code>hasCHD</code>, that describes the event (<code>CHD &gt; 0</code>). The binary variable <code>hasCHD</code> can get only two values: 0 or 1. As a sanity check, compute the mean of this variable, which tells the number of positive cases.</p>
-<div id="c111c556" class="cell" data-execution_count="16">
+<div id="85653b96" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 14</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>fram[<span class="st">"hasCHD"</span>] <span class="op">=</span> fram.CHD <span class="op">&gt;</span> <span class="dv">0</span></span>
@@ -979,7 +1025,7 @@ error rate: 0.3278335724533716</code></pre>
 </div>
 </div>
 <p>Next, form a logistic regression model for variable <code>hasCHD</code> by using variables sCHOL, sCIG, and sFRW, and their interactions as explanatory variables. Store the fitted model to variable <code>fit</code>. Compute the prediction accuracy of the model, store it to variable <code>error_rate</code>.</p>
-<div id="ecf03c6b" class="cell" data-execution_count="17">
+<div id="338ad4cf" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 15</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
@@ -997,8 +1043,8 @@ Model:                            GLM   Df Residuals:                     1387
 Model Family:                Binomial   Df Model:                            6
 Link Function:                  Logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -721.19
-Date:                Thu, 20 Jun 2024   Deviance:                       1442.4
-Time:                        23:34:02   Pearson chi2:                 1.39e+03
+Date:                Sun, 21 Jul 2024   Deviance:                       1442.4
+Time:                        20:51:49   Pearson chi2:                 1.39e+03
 No. Iterations:                     4   Pseudo R-squ. (CS):            0.01950
 Covariance Type:            nonrobust                                         
 ==============================================================================
@@ -1016,7 +1062,7 @@ sCIG           0.4613      0.126      3.666      0.000       0.215       0.708
 </div>
 </div>
 <p>Visualize the model by using the most important explanator on the x axis. Visualize both the points (with <code>plt.scatter</code>) and the logistic curve (with <code>plt.plot</code>).</p>
-<div id="e380ca36" class="cell" data-execution_count="18">
+<div id="95518362" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 16</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logistic(x):</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">+</span> np.exp(<span class="op">-</span>x))</span>
@@ -1039,7 +1085,7 @@ sCIG           0.4613      0.126      3.666      0.000       0.215       0.708
 <span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>plt.plot(X, logistic(X<span class="op">*</span>p.sCIG <span class="op">+</span> p.Intercept), color<span class="op">=</span>viridis[<span class="dv">0</span>])</span>
 <span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Smoking"</span>)</span>
 <span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Pr(Has CHD)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>Text(0, 0.5, 'Pr(Has CHD)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1069,8 +1115,8 @@ sCIG           0.4613      0.126      3.666      0.000       0.215       0.708
 <p>In the case of diagnosing coronary heart disease, false negatives can be more detrimental to the patient. This means they are not receiving the proper intervention when they should. False positives can have costs too, but they are usually only financial. In any case, the diagnosis eventually gets sorted out with further testing, which the positive prediction prompts. Barring all that, the error rate for the model is no better than the error rate by simply guessing the most common outcome, having no coronary heart disease. Therefore, this model is not likely to have practical use.</p>
 </div>
 <hr>
-<p>If a person has cholestherol 200, smokes 17 cigarets per day, and has weight 100, then what is the probability that he/she sometimes shows signs of coronal hear disease? Note that the model expects normalized values. Store the normalized values to dictionary called <code>point</code>. Store the probability in variable <code>predicted</code>.</p>
-<div id="74bab48d" class="cell" data-execution_count="19">
+<p>If a person has cholestherol 200, smokes 17 cigarettes per day, and has weight 100, then what is the probability that he/she sometimes shows signs of coronary heart disease? Note that the model expects normalized values. Store the normalized values to dictionary called <code>point</code>. Store the probability in variable <code>predicted</code>.</p>
+<div id="fb511cb1" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exercise 17</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Put your solution here!</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> <span class="st">"FRW CHOL CIG"</span>.split()</span>
